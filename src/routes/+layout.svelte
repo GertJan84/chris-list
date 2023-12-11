@@ -1,5 +1,22 @@
 <script>
-  import "../app.css";
+    import "../app.css";
+    import { onMount } from 'svelte'
+    import { authUser } from '$lib/authStore'
+    import { auth } from '$lib/utils/firebase'
+    import { onAuthStateChanged } from 'firebase/auth'
+
+
+    onMount(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (!user) return; 
+            authUser.set({
+                uid: user.uid,
+                name: user.displayName,
+                photo: user.photoURL    
+            
+            })
+        });
+    })
 </script>
 
 <slot />

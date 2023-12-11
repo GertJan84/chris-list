@@ -3,7 +3,7 @@
     import Header from '$lib/components/Header.svelte'
 </script>
 
-<Header profile='' />
+<Header />
 
 <div class="flex items-center justify-center align-center">
     <div>

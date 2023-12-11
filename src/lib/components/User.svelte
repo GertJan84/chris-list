@@ -1,9 +1,10 @@
 <script>
-    export let user;
+    export let name;
+    export let photo;
 </script>
 
-<div class="person flex justify-center" style="background-image: url('{user.picture}');" on:click={gotoWishlist} >
-    <h1>{user.first_name}</h1>
+<div class="person flex justify-center" style="background-image: url('{photo}');">
+    <h1>{name}</h1>
 </div>
 
 <style lang="postcss">

@@ -1,10 +1,15 @@
 <script>
-    export let profile = ''
+    import { authUser } from '$lib/authStore'
+    import { goto } from '$app/navigation'
+
+    const gotoGroups = () => {
+        goto('/groups')
+    }
 </script>
 
 <header class="flex flex-row items-center justify-between">
-    <a href="/groups"><img src="tree.png" id="logo" alt="logo"/></a>
-    <img src="{profile}" id="profile-picture" alt="profile"/>
+    <img src="tree.png" id="logo" alt="logo" on:click={gotoGroups} />
+    <img src="{$authUser?.photo}" id="profile-picture" alt="profile" />
 </header>
 
 <style>
